@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: pink;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .box {
+        display: flex;
+        margin: 20px;
+        width: 450px;
+        object-fit: contain;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+      .image {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        border: 5px solid blue;
+      }
+      .title {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main></main>
+  </body>
+  <script>
+    //Re create this
+
+    // <div class="box">
+    //     <img class="image" src="https://media.giphy.com/media/9oHV5i6c0Hgs5tS8Pv/giphy.gif"/>
+    //     <p class="title">Shaq attack</p>
+    // </div>
+    function reusableComponent(title, link) {
+      let divElement = document.createElement("div");
+      let imageElement = document.createElement("img");
+      let pElement = document.createElement("p");
+
+      divElement.classList.add("box");
+
+      imageElement.classList.add("image");
+      imageElement.src = link;
+
+      pElement.classList.add("title");
+      pElement.textContent = title;
+
+      // divElement.appendChild(imageElement);
+      // divElement.appendChild(pElement);
+
+      divElement.append(imageElement, pElement);
+      return divElement;
+    }
+
+    let mainSelector = document.querySelector("main");
+    //let ourFunction = reusableComponent()
+    // mainSelector.appendChild(reusableComponent("Shaq attack","https://media.giphy.com/media/9oHV5i6c0Hgs5tS8Pv/giphy.gif"));
+
+    // mainSelector.appendChild(reusableComponent("Heheheh", "https://media.giphy.com/media/u0LxmF9QVeDoQ/giphy.gif"))
+
+    mainSelector.append(
+      reusableComponent(
+        "Shaq attack",
+        "https://media.giphy.com/media/9oHV5i6c0Hgs5tS8Pv/giphy.gif"
+      ),
+      reusableComponent(
+        "Hehehe",
+        "https://media.giphy.com/media/u0LxmF9QVeDoQ/giphy.gif"
+      )
+    );
+
+  
+    //Add event Listener to the paragraph tag and have it toggle the title class when its clicked
+    /
+  </script>
+</html>
